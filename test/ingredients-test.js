@@ -99,7 +99,7 @@ describe('ingredients input', () => {
       )
       let WrapperConnectedIngredientsInput = wrapper.find(ConnectedIngredientsInput).first()
       let WrapperIngredientsInput = wrapper.find(IngredientsInput).first()
-      expect(typeof(WrapperIngredientsInput.props().createIngredient)).to.deep.equal('function')
+      expect(typeof(WrapperIngredientsInput.props().addIngredient)).to.deep.equal('function')
   });
 
   it('updates the store', () => {
@@ -111,7 +111,7 @@ describe('ingredients input', () => {
       )
     let WrapperConnectedIngredientsInput = wrapper.find(ConnectedIngredientsInput).first()
     let WrapperIngredientsInput = wrapper.find(IngredientsInput).first()
-    WrapperIngredientsInput.props().createIngredient({name: 'mushrooms', calories: 80})
+    WrapperIngredientsInput.props().addIngredient({name: 'mushrooms', calories: 80})
     expect(store.getState().ingredients[0]).to.deep.include({name: 'mushrooms', calories: 80})
   })
 

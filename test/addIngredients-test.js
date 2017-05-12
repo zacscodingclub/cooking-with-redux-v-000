@@ -23,8 +23,8 @@ describe('addIngredients', () => {
     )
     let WrapperConnectedAddIngredients = wrapper.find(ConnectedAddIngredients).first()
     let WrapperAddIngredients = wrapper.find(AddIngredients).first()
-    expect(WrapperAddIngredients.text()).to.include('dough')
-    expect(WrapperAddIngredients.text()).to.include('tomato sauce')
+    expect(WrapperAddIngredients.text().includes('dough')).to.be.true
+    expect(WrapperAddIngredients.text().includes('tomatoe sauce')).to.be.false
   });
 
   it('displays an addIngredient component for each ingredient', () => {
@@ -69,7 +69,7 @@ describe('addIngredients with Recipe', () => {
     store.getState().recipeForm = {ingredientIds: [1, 2]}
       const wrapper = mount(
         <Provider store={store}>
-          < ConnectedRecipesInput />
+          <ConnectedRecipesInput />
         </Provider>
       )
 
